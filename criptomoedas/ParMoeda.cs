@@ -1,23 +1,21 @@
 ﻿namespace criptomoedas {
     internal class ParMoeda {
-        
-        public Moeda Moeda { get; set; }
+
+        public Moeda moedaBase { get; set; }
+        public Moeda moedaCotacao { get; set; }
         public double Valor { get; set; }
-        
+
         public ParMoeda() { }
-        
-        public ParMoeda(double valor, Moeda moeda) {
-            this.Valor = valor;
-            this.Moeda = moeda;
-        }
-        
-        public void ImprimeParMoeda() {
-            Console.WriteLine("Imprime moeda base:'{0}', e moeda cotacao:'{1}'", this.Valor, this.Moeda.Nome);
+
+        public ParMoeda(double valor, Moeda moeda, Moeda moedacotacao) {
+            Valor = valor;
+            moedaBase = moeda;
+            moedaCotacao = moedacotacao;
         }
 
-       /* override public string ToString() { 
-            return "Imprime moeda base: " + this.Valor + ", e moeda cotacao: " + this.Moeda.Nome;
-        }*/ 
+        public void ImprimeParMoeda() {
+            Console.WriteLine("Vender: " + moedaBase.Codigo + ", Comprar: " + moedaCotacao.Codigo + ", Cotação: " + Valor);
+        }
 
     }
 }

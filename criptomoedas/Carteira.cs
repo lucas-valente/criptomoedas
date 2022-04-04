@@ -2,32 +2,38 @@
 
 namespace criptomoedas {
     internal class Carteira {
+        
         public string Endereco { get; set; }
-
-        public List<ItemCarteira> itemcarteira;
-
+        public Cliente cliente { get; set; }
+        public List<ItemCarteira> itemcarteira = new List<ItemCarteira>();
+        
         public Carteira() { }
 
-        public Carteira(string endereco) {
-            this.Endereco = endereco;
-            this.itemcarteira = new List<ItemCarteira>();
+        public Carteira(string endereco, Cliente clienteadd) {
+            Endereco = endereco;
+            cliente = clienteadd;
         }
 
-        public void InsereItemCarteira() {
-
+        public void InsereItemCarteira(double quantidade, Moeda moeda, ParMoeda addparmoeda) {
+            itemcarteira.Add(new ItemCarteira { Quantidade = quantidade,Cmoeda = moeda, parMoeda = addparmoeda });
         }
-
-        public void ImprimeCarteira() {
-            Console.WriteLine("Endereco item carteira:{0}, Itens na carteira:{1}", this.Endereco, this.itemcarteira);
-        }
-
-        public void Deposita() {
-
-        }
-
-        public void Saca() {
-
-        }
+        
                
+        public void ImprimeCarteira() { 
+            Console.WriteLine("\nCarteira\nEndereco carteira: {0}, Itens na carteira: {1}", Endereco, itemcarteira.Count);
+        }
+
+        public void ImprimirItemCarteira() {
+           // Carteira cart = itemcarteira.FindAll(Items);
+        }
+
+        public void Items() {
+           //ItemCarteira intcart = itemcarteira.Find();
+            foreach (ItemCarteira carteira in itemcarteira)
+                Console.WriteLine("Cod: " + carteira.Cmoeda.Codigo + 
+                    ", Nome: " + carteira.Cmoeda.Nome + 
+                    ", Quantidade: "+ carteira.Quantidade + 
+                    ", Valor: " + (carteira.parMoeda.Valor * carteira.Quantidade).ToString("F2") );
+        }
     }
 }

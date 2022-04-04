@@ -1,39 +1,58 @@
-﻿using criptomoedas;
+﻿using System.Collections.Generic;
 
-Moeda mmoedaBTC = new Moeda("BTC", "Bitcoin");
-Moeda mmoedaETC = new Moeda("ETC", "Ethereum");
-Moeda mmoedaLTC = new Moeda("LTC", "Litecoin");
-Moeda mmoedaTTH = new Moeda("TTH", "Tether");
+namespace criptomoedas {
+    class Program {
+        static void Main(string[] args) {
 
-Carteira n1 = new Carteira("sd56bsdb456as65gf46a5s");
-n1.itemcarteira.Add(new ItemCarteira(5));
-n1.itemcarteira.Add(new ItemCarteira(10));
-n1.itemcarteira.Add(new ItemCarteira(15));
-n1.itemcarteira.Add(new ItemCarteira(20));
+            //Insere as Criptomoedas
+            Moeda mmoedaBTC = new Moeda("BTC", "Bitcoin");
+            Moeda mmoedaETC = new Moeda("ETC", "Ethereum");
+            Moeda mmoedaLTC = new Moeda("LTC", "Litecoin");
 
-ParMoeda pparmoeda = new ParMoeda(1000, mmoedaBTC);
+            //Insere cliente
+            Cliente ccliente = new Cliente(1834,"Lucas Ferreira Valente","valentelucas85@gmail.com","(41)995071014", "e10adc3949ba59abbe56e057f20f883e");
 
-Carteira ccarteira = new Carteira("sd56bsdb456as65gf46a5s");
+            //Insere as Moedas de conversão
+            Moeda mmoedaUSD = new Moeda("USD", "Dolar Americano");
 
-Cliente ccliente = new Cliente();
+            //Recebe os valores de cotação e as moedas para cotação
+            ParMoeda pparmoedaBTC = new ParMoeda(45979.51, mmoedaBTC,mmoedaUSD);
+            ParMoeda pparmoedaETC = new ParMoeda(3465.66, mmoedaETC, mmoedaUSD);
+            ParMoeda pparmoedaLTC = new ParMoeda(124.58, mmoedaLTC, mmoedaUSD);
 
-Corretora ccorretora = new Corretora(4546, "Corretora 'A'");
+            //Insere os atributos da corretora
+            Corretora ccorretora = new Corretora(1, "Bit New");
 
-ItemCarteira iitemcarteira = new ItemCarteira(10);
+            //Insere os itens na carteira
+            Carteira ccarteira = new Carteira("e10adc3949ba59abbe56e057f20f883e", ccliente);
+            ccarteira.InsereItemCarteira(2.5, mmoedaBTC,pparmoedaBTC);
+            ccarteira.InsereItemCarteira(1.65, mmoedaETC,pparmoedaETC);
+            ccarteira.InsereItemCarteira(0.55, mmoedaLTC,pparmoedaLTC);
+
+            //Cria uma nova carteira
+            ccorretora.InsereCarteira(ccarteira);
 
 
-ccliente.Nome = "José";
+            
+            //Imprime a cotação do par moeda
+            Console.WriteLine("Pares de Moedas");
+            pparmoedaBTC.ImprimeParMoeda();
+            pparmoedaETC.ImprimeParMoeda();
+            pparmoedaLTC.ImprimeParMoeda();
 
+            //Imprime o codigo, nome e quantidades de intens da corretora
+            ccorretora.ImprimeCorretora();
+            
+            //Impreime o nome da carteira e a quantidade de itens
+            ccarteira.ImprimeCarteira();
 
-mmoedaBTC.ImprimeMoeda();
-mmoedaETC.ImprimeMoeda();
-mmoedaLTC.ImprimeMoeda();
-mmoedaTTH.ImprimeMoeda();
+            //Imprime o cliente
+            Console.WriteLine("\nCliente");
+            ccliente.ImprimeCliente();
 
-
-ccliente.ImprimeCliente();
-iitemcarteira.ImprimeItemCarteira();
-ccarteira.ImprimeCarteira();
-ccorretora.ImprimeCorretora();
-pparmoeda.ImprimeParMoeda();
-
+            //Imprime os itens da carteira
+            Console.WriteLine("\nItens na carteira");
+            ccarteira.Items();
+        }
+    }
+}

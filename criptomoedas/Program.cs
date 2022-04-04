@@ -52,7 +52,7 @@ namespace criptomoedas {
 
             //Imprime os itens da carteira
             Console.WriteLine("\nItens na carteira");
-            ccarteira.Items();
+            ccarteira.ItemsCarteira();
         }
     }
 }

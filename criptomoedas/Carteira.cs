@@ -23,12 +23,7 @@ namespace criptomoedas {
             Console.WriteLine("\nCarteira\nEndereco carteira: {0}, Itens na carteira: {1}", Endereco, itemcarteira.Count);
         }
 
-        public void ImprimirItemCarteira() {
-           // Carteira cart = itemcarteira.FindAll(Items);
-        }
-
-        public void Items() {
-           //ItemCarteira intcart = itemcarteira.Find();
+        public void ItemsCarteira() {
             foreach (ItemCarteira carteira in itemcarteira)
                 Console.WriteLine("Cod: " + carteira.Cmoeda.Codigo + 
                     ", Nome: " + carteira.Cmoeda.Nome + 

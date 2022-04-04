@@ -49,9 +49,25 @@ namespace criptomoedas {
             //Imprime o cliente
             Console.WriteLine("\nCliente");
             ccliente.ImprimeCliente();
+            
 
             //Imprime os itens da carteira
             Console.WriteLine("\nItens na carteira");
+            ccarteira.ItemsCarteira();
+
+            ccarteira.Deposita(100, mmoedaBTC);
+            ccarteira.Deposita(10, mmoedaETC);
+            ccarteira.Deposita(100, mmoedaLTC);
+
+
+            Console.WriteLine("\nItens na Carteira Atualizados após Deposito");
+            ccarteira.ItemsCarteira();
+
+            ccarteira.Saca(50, mmoedaBTC);
+            ccarteira.Saca(0.34, mmoedaETC);
+            ccarteira.Saca(30, mmoedaLTC);
+
+            Console.WriteLine("\nItens na Carteira Atualizados após Saque");
             ccarteira.ItemsCarteira();
         }
     }

@@ -8,10 +8,13 @@
 
         public ItemCarteira() { }
 
-        public ItemCarteira(double quantidade, Moeda criptomoeda) {
+        public ItemCarteira(double quantidade, Moeda criptomoeda) : this() {
             Quantidade = quantidade;
             Cmoeda = criptomoeda;
+        }
 
+        public ItemCarteira(double quantidade, Moeda criptomoeda, ParMoeda parmoeda) : this(quantidade,criptomoeda) {
+            parMoeda = parmoeda;
         }
 
         public void ObtemCotacaoMoeda(Moeda moeda) {

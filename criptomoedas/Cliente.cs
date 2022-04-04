@@ -23,7 +23,7 @@
         }
 
         public void ImprimeCliente() {
-            Console.WriteLine("Codigo: {0}, Nome: {1}, E-mail: {2}, Celular: {3}",
+            Console.WriteLine("Codigo: {0}, Nome: {1}, E-mail: {2}, Celular: {3}.",
             Codigo, Nome, Email, Celular);
         }
 

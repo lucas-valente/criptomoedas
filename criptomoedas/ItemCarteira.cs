@@ -18,11 +18,11 @@
         }
 
         public void ObtemCotacaoMoeda(Moeda moeda) {
-            Quantidade += 12 ;
+           // Quantidade += 12 ;
         }
         
         public void ImprimeItemCarteira() {
-            ObtemCotacaoMoeda(Cmoeda);
+            //ObtemCotacaoMoeda(Cmoeda);
             Console.WriteLine("Quantidade: {0}", this.Quantidade);
         }
                

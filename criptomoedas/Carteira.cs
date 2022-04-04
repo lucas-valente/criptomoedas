@@ -20,8 +20,7 @@ namespace criptomoedas {
         
         public void Deposita(double quantidade, Moeda moeda) {
 
-            ItemCarteira? itemCarteira = itemcarteira.Find(x => x.Cmoeda.Codigo == moeda.Codigo);
-            ItemCarteira item = itemCarteira;
+            ItemCarteira? item = itemcarteira.Find(x => x.Cmoeda.Codigo == moeda.Codigo);
             
             item.Quantidade += quantidade;
 
@@ -29,8 +28,7 @@ namespace criptomoedas {
 
         public void Saca(double quantidade, Moeda moeda) {
 
-            ItemCarteira? itemCarteira = itemcarteira.Find(x => x.Cmoeda.Codigo == moeda.Codigo);
-            ItemCarteira item = itemCarteira;
+            ItemCarteira? item = itemcarteira.Find(x => x.Cmoeda.Codigo == moeda.Codigo);
 
             item.Quantidade -= quantidade;
 

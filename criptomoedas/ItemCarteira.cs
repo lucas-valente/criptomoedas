@@ -16,13 +16,8 @@
         public ItemCarteira(double quantidade, Moeda criptomoeda, ParMoeda parmoeda) : this(quantidade,criptomoeda) {
             parMoeda = parmoeda;
         }
-
-        public void ObtemCotacaoMoeda(Moeda moeda) {
-           // Quantidade += 12 ;
-        }
         
         public void ImprimeItemCarteira() {
-            //ObtemCotacaoMoeda(Cmoeda);
             Console.WriteLine("Quantidade: {0}", this.Quantidade);
         }
                
